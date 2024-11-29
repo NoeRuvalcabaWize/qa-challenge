@@ -1,0 +1,43 @@
+{
+  "cookies": [
+    {
+      "name": "_ga",
+      "value": "GA1.1.965925841.1732913194",
+      "domain": ".todoist.com",
+      "path": "/",
+      "expires": 1767473194.393198,
+      "httpOnly": false,
+      "secure": false,
+      "sameSite": "Lax"
+    },
+    {
+      "name": "_ga_M6V9BEQD2J",
+      "value": "GS1.1.1732913194.1.1.1732913194.0.0.0",
+      "domain": ".todoist.com",
+      "path": "/",
+      "expires": 1767473194.41302,
+      "httpOnly": false,
+      "secure": false,
+      "sameSite": "Lax"
+    }
+  ],
+  "origins": [
+    {
+      "origin": "https://app.todoist.com",
+      "localStorage": [
+        {
+          "name": "td-cdn-ttl",
+          "value": "1735505193941"
+        },
+        {
+          "name": "token",
+          "value": "0540c31b2766e39051dd38c38853cebeb87d59a1"
+        },
+        {
+          "name": "td-cdn",
+          "value": "https://todoist.b-cdn.net/"
+        }
+      ]
+    }
+  ]
+}

@@ -10,6 +10,9 @@ class TaskPage {
     private moreButton: Locator;
     private deleteTaskButton: Locator;
     private deleteConfirmation: Locator;
+    private taskNameform: Locator;
+    private taskDescriptionform: Locator;
+    private firstAttempt: boolean;
 
     constructor(page: Page) {
         this.taskBtn = page.locator('button.plus_add_button');
@@ -21,26 +24,43 @@ class TaskPage {
         this.moreButton = page.getByTestId('button-container').getByLabel('More actions');
         this.deleteTaskButton = page.getByText('Delete').first();
         this.deleteConfirmation = page.locator('//span[text()="Delete"]');
+        this.taskNameform = page.locator('p[data-placeholder="Task name"]');
+        this.taskDescriptionform = page.locator('p[data-placeholder="Description"]');
+        this.firstAttempt = true;
     }
 
     async addTask(name: string, description?: string) {
-        await this.taskBtn.click();
-        await this.taskName.fill(name);
-        if (description) {
-            await this.taskDescription.fill(description);
+        if (this.firstAttempt) {
+            await this.taskBtn.click();
+            await this.taskName.fill(name);
+            if (description) {
+                await this.taskDescription.fill(description);
+            }
+            await this.addTaskBtn.click();
+        } else {
+            await this.addTaskForm(name, description);
         }
-        await this.addTaskBtn.click();
-        await expect(this.taskList).toContainText(name);
-        if (description) {
-            await expect(this.taskDescriptionField).toContainText(description);
-        }
+        this.firstAttempt = false;
     }
 
-    async deleteTask(name?: string) {
-        await this.taskList.click();
+    async addTaskForm(name: string, description?: string) {
+        await this.taskNameform.fill(name);
+        if (description) {
+            await this.taskDescriptionform.fill(description);
+        }
+        await this.addTaskBtn.click();
+    }
+
+    async deleteTask(name: string) {
+        await this.taskList.getByText(name).click();
         await this.moreButton.click();
         await this.deleteTaskButton.click();
         await this.deleteConfirmation.click();
+    }
+
+    async isTaskVisible(name: string) {
+        const task = this.taskList.getByText(name);
+        return await task.isVisible();
     }
 }
 export { TaskPage };
