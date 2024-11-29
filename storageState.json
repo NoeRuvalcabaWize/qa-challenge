@@ -2,20 +2,20 @@
   "cookies": [
     {
       "name": "_ga",
-      "value": "GA1.1.965925841.1732913194",
+      "value": "GA1.1.1755222418.1732915499",
       "domain": ".todoist.com",
       "path": "/",
-      "expires": 1767473194.393198,
+      "expires": 1767475499.415436,
       "httpOnly": false,
       "secure": false,
       "sameSite": "Lax"
     },
     {
       "name": "_ga_M6V9BEQD2J",
-      "value": "GS1.1.1732913194.1.1.1732913194.0.0.0",
+      "value": "GS1.1.1732915499.1.1.1732915499.0.0.0",
       "domain": ".todoist.com",
       "path": "/",
-      "expires": 1767473194.41302,
+      "expires": 1767475499.433708,
       "httpOnly": false,
       "secure": false,
       "sameSite": "Lax"
@@ -27,7 +27,7 @@
       "localStorage": [
         {
           "name": "td-cdn-ttl",
-          "value": "1735505193941"
+          "value": "1735507499000"
         },
         {
           "name": "token",

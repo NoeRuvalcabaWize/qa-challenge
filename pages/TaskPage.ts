@@ -31,7 +31,7 @@ class TaskPage {
 
     async addTask(name: string, description?: string) {
         if (this.firstAttempt) {
-            await this.taskBtn.click();
+            await this.taskBtn.click({ delay: 500 });
             await this.taskName.fill(name);
             if (description) {
                 await this.taskDescription.fill(description);
@@ -52,7 +52,7 @@ class TaskPage {
     }
 
     async deleteTask(name: string) {
-        await this.taskList.getByText(name).click();
+        await this.taskList.getByText(name).click({ delay: 500 });
         await this.moreButton.click();
         await this.deleteTaskButton.click();
         await this.deleteConfirmation.click();
