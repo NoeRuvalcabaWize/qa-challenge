@@ -2,7 +2,11 @@
   "name": "challenge-",
   "version": "1.0.0",
   "main": "index.js",
-  "scripts": {},
+  "scripts": {
+    "codegen": "npx playwright codegen",
+    "play-ui": "npx playwright --ui",
+    "play-d": "npx playwright test --debug"
+  },
   "keywords": [],
   "author": "",
   "license": "ISC",
