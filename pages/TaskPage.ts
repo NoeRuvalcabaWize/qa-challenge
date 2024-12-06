@@ -10,13 +10,12 @@ class TaskPage {
     private moreButton: Locator;
     private deleteTaskButton: Locator;
     private deleteConfirmation: Locator;
-    private taskNameform: Locator;
     private taskDescriptionform: Locator;
     private firstAttempt: boolean;
 
     constructor(page: Page) {
         this.taskBtn = page.locator('button.plus_add_button');
-        this.taskName = page.locator('p[data-placeholder="Task name"]');
+        this.taskName = page.locator('div[aria-label="Task name"]');
         this.taskDescription =  page.locator('p[data-placeholder="Description"]');
         this.addTaskBtn = page.getByTestId('task-editor-submit-button');
         this.taskList = page.locator('div.task_content');
@@ -24,7 +23,6 @@ class TaskPage {
         this.moreButton = page.getByTestId('button-container').getByLabel('More actions');
         this.deleteTaskButton = page.getByText('Delete').first();
         this.deleteConfirmation = page.locator('//span[text()="Delete"]');
-        this.taskNameform = page.locator('p[data-placeholder="Task name"]');
         this.taskDescriptionform = page.locator('p[data-placeholder="Description"]');
         this.firstAttempt = true;
     }
@@ -44,7 +42,7 @@ class TaskPage {
     }
 
     async addTaskForm(name: string, description?: string) {
-        await this.taskNameform.fill(name);
+        await this.taskName.fill(name);
         if (description) {
             await this.taskDescriptionform.fill(description);
         }
